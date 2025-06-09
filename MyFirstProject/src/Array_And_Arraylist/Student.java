@@ -2,20 +2,25 @@ package Array_And_Arraylist;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 
 public class Student {
-    private final String name;
-    private final int[] marks;
+    private String name;
+    private ArrayList<Integer> marks = new ArrayList<Integer>();
 
     public Student(String name, int... marks) {
         this.name = name;
-        this.marks = marks;
+        for(int mark: marks) {
+            this.marks.add(mark);
+        }
     }
     public String getName() {
         return name;
     }
     public int getNumberOfMarks(){
-        return marks.length;
+        return marks.size();
     }
 
     public int getTotalSumOfMarks(){
@@ -27,23 +32,11 @@ public class Student {
     }
 
     public int getMaximumMark(){
-        int maxNumber = Integer.MIN_VALUE;
-        for(int mark : marks){
-            if(mark>maxNumber){
-                maxNumber = mark;
-            }
-        }
-        return maxNumber;
+        return Collections.max(marks);
     }
 
     public int getMinimumMark(){
-        int minNumber = Integer.MAX_VALUE;
-        for(int mark : marks){
-            if(mark<minNumber){
-                minNumber = mark;
-            }
-        }
-        return minNumber;
+        return Collections.min(marks);
     }
 
     public BigDecimal getAverageMarks() {
