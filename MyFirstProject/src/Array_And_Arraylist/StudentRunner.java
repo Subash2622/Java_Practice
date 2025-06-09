@@ -4,21 +4,22 @@ import java.math.BigDecimal;
 
 public class StudentRunner {
     public static void main(String[] args) {
-        int [] marks = {99,58,78,92,72};
-        Student student = new Student("Subash",marks);
-        int number = student.getNumberOfMarks();
-        System.out.println("number of marks "+number);
+        Student student = new Student("Subash", 35, 45, 78, 72, 67);
+        Student student1 = new Student("Abhisek", 99, 99, 99, 93, 99, 92, 99);
+        Student student2 = new Student("Amit", 99, 58, 78, 92);
 
-        int sum = student.getTotalSumOfMarks();
-        System.out.println("Total Mark "+sum);
+        printStudentReport(student);
+        printStudentReport(student1);
+        printStudentReport(student2);
+    }
 
-        int maximuMark = student.getMaximumMark();
-        System.out.println("Maximum of marks: "+maximuMark);
-
-        int minimumMark = student.getMinimumMark();
-        System.out.println("Minimum of marks: "+minimumMark);
-
-        BigDecimal average = student.getAverageMarks();
-        System.out.println("Average mark: "+ average);
+    public static void printStudentReport(Student student) {
+        System.out.println("----- Report for " + student.getName() + " -----");
+        System.out.println("Number of marks: " + student.getNumberOfMarks());
+        System.out.println("Total marks: " + student.getTotalSumOfMarks());
+        System.out.println("Maximum mark: " + student.getMaximumMark());
+        System.out.println("Minimum mark: " + student.getMinimumMark());
+        System.out.println("Average marks: " + student.getAverageMarks());
+        System.out.println();
     }
 }
