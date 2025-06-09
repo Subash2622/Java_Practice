@@ -3,50 +3,57 @@ package Array_And_Arraylist;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
+import java.util.List;
 
 public class Student {
-    private String name;
-    private ArrayList<Integer> marks = new ArrayList<Integer>();
+    private final String name;
+    private final List<Integer> marks;
 
     public Student(String name, int... marks) {
         this.name = name;
-        for(int mark: marks) {
+        this.marks = new ArrayList<>();
+        for (int mark : marks) {
             this.marks.add(mark);
         }
     }
+
     public String getName() {
         return name;
     }
-    public int getNumberOfMarks(){
+
+    public int getNumberOfMarks() {
         return marks.size();
     }
 
-    public int getTotalSumOfMarks(){
+    public int getTotalSumOfMarks() {
         int sum = 0;
-        for(int mark:marks){
+        for (int mark : marks) {
             sum += mark;
         }
         return sum;
     }
 
-    public int getMaximumMark(){
+    public int getMaximumMark() {
         return Collections.max(marks);
     }
 
-    public int getMinimumMark(){
+    public int getMinimumMark() {
         return Collections.min(marks);
     }
 
     public BigDecimal getAverageMarks() {
         int sum = getTotalSumOfMarks();
         int number = getNumberOfMarks();
-
-        return new BigDecimal(sum).divide(new BigDecimal(number),3, RoundingMode.UP);
+        return new BigDecimal(sum).divide(new BigDecimal(number), 3, RoundingMode.UP);
     }
+
+    public void addNewMark(int mark) {
+        marks.add(mark);
+    }
+
     @Override
     public String toString() {
-        return name;
+        return "Student{name='" + name + "', marks=" + marks + "}";
     }
 }
