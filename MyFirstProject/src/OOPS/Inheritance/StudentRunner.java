@@ -13,7 +13,7 @@ public class StudentRunner {
 //        System.out.println(value);
 //        System.out.println(person);
         Employee employee = new Employee();
-        employee.setName("Subash Sahoo");
+//        employee.setName("Subash Sahoo");
         employee.setEmail("test@gmail.com");
         employee.setEmployerGrade('A');
         employee.setTitle("Programmer Analyst");

@@ -1,0 +1,144 @@
+|  Welcome to JShell -- Version 17.0.12
+|  For an introduction type: /help intro
+
+jshell> class Animal{
+   ...> }
+|  created class Animal
+
+jshell> class Pet {
+   ...> }
+|  created class Pet
+
+jshell> class Dog extends Animal, Pet{
+   ...> }
+|  Error:
+|  '{' expected
+|  class Dog extends Animal, Pet{
+|                          ^
+
+jshell> class Animal{
+   ...> }
+|  modified class Animal
+
+jshell> class Pet extends Animal{
+   ...>     public void groom(){
+   ...>         System.out.println("Groom");
+   ...>     }
+   ...> }
+|  replaced class Pet
+
+jshell> class Dog extends Pet{
+   ...> }
+|  created class Dog
+
+jshell> Dog dog = new Dog();
+dog ==> Dog@2328c243
+
+jshell> dog.toString()
+$7 ==> "Dog@2328c243"
+
+jshell> dog.groom()
+Groom
+
+jshell> Pet pet = new Dog()
+pet ==> Dog@1ed6993a
+
+jshell> pet.groom()
+Groom
+
+jshell> pet instanceof Pet
+$11 ==> true
+
+jshell> pet instanceof Dog
+$12 ==> true
+
+jshell> pet instanceof String
+|  Error:
+|  incompatible types: Pet cannot be converted to java.lang.String
+|  pet instanceof String
+|  ^-^
+
+jshell> pet instanceof Animal
+$13 ==> true
+
+jshell> pet instanceof Object
+$14 ==> true
+
+jshell> Animal animal = new Animal()
+animal ==> Animal@e2144e4
+
+jshell> animal instanceof Dog
+$16 ==> false
+
+jshell> animal instanceof Object
+$17 ==> true
+
+jshell> class Animal {
+   ...>     public void bark() {
+   ...>         System.out.println("Test");
+   ...>     }
+   ...> }
+|  replaced class Animal
+|    update replaced variable animal, reset to null
+|    update replaced variable pet, reset to null
+|    update replaced variable dog, reset to null
+
+jshell> Animal animal = new Animal()
+animal ==> Animal@694f9431
+
+jshell> animal.bark()
+Test
+
+jshell>  class AbstractAnimal {
+   ...>     public void bark();
+   ...> }
+|  Error:
+|  missing method body, or declare abstract
+|      public void bark();
+|      ^-----------------^
+
+jshell> class AbstractAnimal {
+   ...>     abstract public void bark();
+   ...> }
+|  Error:
+|  AbstractAnimal is not abstract and does not override abstract method bark() in AbstractAnimal
+|  class AbstractAnimal {
+|  ^---------------------...
+
+jshell> abstract class AbstractAnimal {
+   ...>     abstract public void bark();
+   ...> }
+|  created class AbstractAnimal
+
+jshell> class Dog extends AbstractAnimal{
+   ...> }
+|  Error:
+|  Dog is not abstract and does not override abstract method bark() in AbstractAnimal
+|  class Dog extends AbstractAnimal{
+|  ^--------------------------------...
+|    update replaced variable dog which cannot be referenced until class Dog is declared
+
+jshell> class Dog extends AbstractAnimal{
+   ...>     public void bark(){
+   ...>         System.out.println("Bow Bow");
+   ...>     }
+   ...> }
+|  created class Dog
+|    update replaced variable dog, reset to null
+
+jshell> Dog dog = new Dog()
+dog ==> Dog@48533e64
+
+jshell> dog.bark()
+Bow Bow
+
+jshell> AbsteractANimal animal = new AbstractAnimal()
+|  Error:
+|  cannot find symbol
+|    symbol:   class AbsteractANimal
+|  AbsteractANimal animal = new AbstractAnimal();
+|  ^-------------^
+|  Error:
+|  AbstractAnimal is abstract; cannot be instantiated
+|  AbsteractANimal animal = new AbstractAnimal();
+|                           ^------------------^

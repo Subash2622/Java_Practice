@@ -3,6 +3,11 @@ package OOPS.Inheritance;
 public class Person {
     private String name;
     private String email;
+    private String phoneNumber;
+
+    public Person(){
+        System.out.println("Person Constructor");
+    }
 
     public String getName() {
         return name;

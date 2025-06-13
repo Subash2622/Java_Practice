@@ -9,6 +9,11 @@ public class Employee extends Person{
     private char employerGrade;
     private BigDecimal Salary;
 
+    public Employee(){
+        super();
+        System.out.println("Employee Constructor");
+    }
+
     public String getTitle() {
         return title;
     }
